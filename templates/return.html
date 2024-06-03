@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        .result-container {
+            max-width: 300px;
+            margin: 40px auto 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .result {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hasil Prediksi Saham</h1>
+    </div>
+    <div class="result-container">
+        <div class="result">
+            <!-- The result will be displayed here -->
+            <script>
+                function getQueryParam(param) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(param);
+                }
+
+                function displayPrediction() {
+                    const stock = getQueryParam('stock');
+                    const predictions = {
+                        'BBRI': 'naik',
+                        'BBCA': 'turun',
+                        'BMRI': 'naik',
+                        'GOTO': 'turun'
+                    };
+                    const prediction = predictions[stock];
+                    if (prediction) {
+                        document.querySelector('.result').textContent = `Prediksi saham ${stock} akan ${prediction} dari harga sebelumnya.`;
+                    } else {
+                        document.querySelector('.result').textContent = `Saham ${stock} tidak ditemukan.`;
+                    }
+                }
+
+                displayPrediction();
+            </script>
+        </div>
+        <a href="prediksi">Kembali</a>
+    </div>
+</body>
+</html>

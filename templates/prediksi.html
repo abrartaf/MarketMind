@@ -77,10 +77,10 @@
 <body class="bg-[#000000]" style="overflow-x: hidden; width: 100%">
         
     <div class="form-container">
-        <form action="landing.html">
+        <form action="return.html">
             <label for="stock">Pilih saham :</label>
             <select name="stock" id="stock">
-                <option value="BBRI">BI</option>
+                <option value="BBRI">BBRI</option>
                 <option value="BBCA">BBCA</option>
                 <option value="BMRI">BMRI</option>
                 <option value="GOTO">GOTO</option>
@@ -88,7 +88,13 @@
             <input type="submit" value="Prediksi" class="submit-button">
         </form>
     </div>
-
+    <script>
+        document.getElementById('stockForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            const stock = document.getElementById('stock').value;
+            window.location.href = `.htmstock=${stock}`; // Redirect to landing.html with the selected stock as query parameter
+        });
+    </script>
 </body>
 
 <footer style="padding-block: 120px; font-family: 'Montserrat', sans-serif;"
