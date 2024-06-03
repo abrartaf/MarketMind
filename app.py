@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Tambahkan konfigurasi
 app.config['app.url'] = 'http://localhost'
 
-@app.route('/')
+@app.route('/landing')
 def home():
     return render_template('landing.html')
 
@@ -17,6 +17,10 @@ def produk():
 @app.route('/berita')
 def berita():
     return render_template('berita.html')
+
+@app.route('/prediksi')
+def prediksi():
+    return render_template('prediksi.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
